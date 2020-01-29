@@ -1,29 +1,5 @@
-import fetch from 'node-fetch';
+import serverless from "serverless-http";
 
-exports.handler = async (event, context, callback) => {
-  // Request headers for a mock 200 response
-  const request = fetch(decodeURIComponent(event.queryStringParameters.href), {
-    method: 'HEAD'
-  });
+import app from "./app";
 
-  let data;
-  try {
-    const response = await request;
-
-    data = {
-      url: response.url,
-      status: response.status,
-      statusText: response.statusText
-    };
-  } catch (e) {
-    console.log(e);
-  }
-
-  return callback(null, {
-    statusCode: 200,
-    header: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-}
+export const handler = serverless(app);
