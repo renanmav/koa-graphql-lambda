@@ -1,15 +1,14 @@
 module.exports = {
-  "presets": [
+  presets: [
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "node": "8.10"
+        targets: {
+          node: "8.10"
         }
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ],
-  "plugins": [
-    "@babel/plugin-proposal-class-properties"
-  ]
-}
+  plugins: ["@babel/plugin-proposal-class-properties"]
+};

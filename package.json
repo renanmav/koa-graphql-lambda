@@ -44,6 +44,7 @@
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
+    "@babel/preset-typescript": "^7.8.3",
     "babel-jest": "^24.5.0",
     "babel-loader": "8.0.6",
     "jest": "^24.8.0",
@@ -53,10 +54,11 @@
     "webpack-cli": "^3.3.4"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
+    "@koa/router": "^8.0.6",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "^0.0.16",
     "serverless-http": "^2.3.1"
   }
 }
