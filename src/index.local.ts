@@ -1,8 +1,7 @@
 import { createServer } from "http";
 
 import app from "./app";
-// import {GRAPHQL_PORT} from './common/config';
-const GRAPHQL_PORT = 5001;
+const GRAPHQL_PORT = 5000;
 
 const runServer = async () => {
   const server = createServer(app.callback());

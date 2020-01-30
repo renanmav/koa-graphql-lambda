@@ -10,8 +10,6 @@ module.exports = {
   externals: {
     "aws-sdk": "aws-sdk"
   },
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: ["./src/index.ts"],
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json", ".mjs"]
   },

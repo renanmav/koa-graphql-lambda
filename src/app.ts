@@ -1,6 +1,7 @@
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
 import Router from "@koa/router";
+import cors from "@koa/cors";
 import koaGraphQL, { OptionsData } from "koa-graphql";
 import { koaPlayground } from "graphql-playground-middleware";
 
@@ -11,7 +12,7 @@ const app = new Koa();
 const router = new Router();
 
 app.use(bodyParser());
-// app.use(convert(cors({ maxAge: 86400, origin: "*" })));
+app.use(cors());
 
 router.get("/health", async ctx => {
   try {
@@ -23,19 +24,21 @@ router.get("/health", async ctx => {
   }
 });
 
-router.all(
-  "/playground",
-  koaPlayground({
-    endpoint: "/graphql"
-  })
-);
+if (process.env.NODE_ENV !== "production") {
+  router.all(
+    "/playground",
+    koaPlayground({
+      endpoint: "/graphql"
+    })
+  );
+}
 
 router.all(
   "/graphql",
   koaGraphQL(
     async (request, ctx, koaContext): Promise<OptionsData> => {
       return {
-        graphiql: true,
+        graphiql: process.env.NODE_ENV !== "production",
         schema,
         rootValue: {
           request: ctx.req
