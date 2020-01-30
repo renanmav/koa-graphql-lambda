@@ -1,9 +1,8 @@
 {
-  "private": true,
   "name": "lambda-starter",
   "version": "1.0.0",
-  "description": "Minimalist AWS API Gateway and AWS Lambda starter kit",
   "main": "build/index.js",
+  "private": true,
   "config": {
     "s3BucketName": "animavita",
     "region": "sa-east-1",
@@ -25,29 +24,14 @@
     "bucket": "aws s3api get-bucket-location --bucket $npm_package_config_s3BucketName --region $npm_package_config_region || yarn create-bucket",
     "package": "aws cloudformation package --template ./cloudformation.yaml --s3-bucket $npm_package_config_s3BucketName --output-template packaged-sam.yaml --region $npm_package_config_region"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/buildbreakdo/lambda-starter.git"
-  },
-  "keywords": [
-    "starter",
-    "starter-kit",
-    "aws-api-gateway",
-    "aws-lambda"
-  ],
-  "author": "Your Name Here",
-  "bugs": {
-    "url": "https://github.com/buildbreakdo/lambda-starter/issues"
-  },
-  "homepage": "https://github.com/buildbreakdo/lambda-starter#readme",
   "dependencies": {
     "@koa/router": "^8.0.6",
+    "aws-serverless-koa": "^1.0.1",
     "graphql": "^14.5.8",
     "graphql-playground-middleware": "^1.1.2",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
-    "koa-graphql": "^0.8.0",
-    "serverless-http": "^2.3.1"
+    "koa-graphql": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

@@ -1,4 +1,4 @@
-import serverless from "serverless-http";
+import serverless from "aws-serverless-koa";
 
 import app from "./app";
 
