@@ -64,3 +64,5 @@ packages/graphql/.env
 packaged-sam.yaml
 
 .DS_Store
+
+.idea
